@@ -1,0 +1,96 @@
+<!-- for syntax reference, see https://www.kaltura.com/api_v3/xsdDoc/?type=bulkUploadXml.bulkUploadXML -->
+<mrss xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ingestion.xsd">
+<channel>
+	<item>
+		<action>add</action>
+		<referenceId>e2d1e763-9530-4788-b7a0-01ecdcac7628</referenceId>
+		<!-- if you need to create a child asset of a parent/child entry, you MUST set the <referenceId> on the parent item, then set the same value as the <parentReferenceId> on any children <item>s -->
+		<!--<parentReferenceId>e2d1e763-9530-4788-b7a0-01ecdcac7628</parentReferenceId>-->
+		<type>1</type>
+		<userId>user@customer.com</userId>
+		<entitledUsersEdit>
+			<user>coEditorUser</user>
+		</entitledUsersEdit>
+		<entitledUsersPublish>
+			<user>coPublisherUser</user>
+		</entitledUsersPublish>
+		<name>Media Title Name</name>
+		<description>sample description here</description>
+		<tags>
+			<tag>test</tag>
+			<tag>kaltura</tag>
+			<tag>import</tag>
+		</tags>
+		<categories>
+			<category>Root Category Example</category>
+			<category>Root Category Example&gt;Sub Category</category>
+		</categories>
+		<!-- if specifying a transcoding profile to be used, include the id here -->
+		<!--<conversionProfileId>123456789</conversionProfileId> -->
+		<!-- or you can use the profile name instead of the id -->
+		<!-- <conversionProfile>System profile name here</conversionProfile> -->
+		<!-- if needing to set a schedule for the entry availability, use the <startDate> and/or <endDate> elements using a UTC dateTime-->
+		<!-- <startDate>2022-12-01T00:00:00</startDate> -->
+		<!-- <endDate>2022-12-31T00:00:00</endDate> -->
+		<media>
+			<mediaType>1</mediaType>
+		</media>
+		<contentAssets>
+			<!-- If you have multiple flavors to ingest for an entry, then use multiple <content> elements to represent each flavor -->
+			<content>
+				<!-- if the media asset is hosted publicly, then add the url to the asset here as a urlContentResource or other appropriate source type.  See https://www.kaltura.com/api_v3/xsdDoc/?type=bulkUploadXml.bulkUploadXML#element-content for supported types-->
+				<urlContentResource url="sample media file url here"/>
+				<!-- if the media asset is being placed in a drop folder, then use the filename here as a dropFolderFileContentResource -->
+				<!--<dropFolderFileContentResource filePath="media asset file name (and path if not in the root folder) here"/>-->
+			</content>
+		</contentAssets>
+		<thumbnails>
+			<thumbnail isDefault="true">
+				<!-- if the thumbnail asset is hosted publicly, then add the url to the asset here as a urlContentResource or other appropriate source type.-->
+				<urlContentResource url="sample thumbnail url here"/>
+				<!-- if the thumbnail is being placed in a drop folder, then use the filename here as a dropFolderFileContentResource -->
+				<!--<dropFolderFileContentResource filePath="thumbnail file name (and path if not in the root folder) here"/>-->
+			</thumbnail>	
+		</thumbnails>
+		<!-- if importing attachments, use the <attachments> element -->
+		<attachments>
+			<action>update</action>
+			<attachment>
+				<tags>
+					<tag>attachment</tag>
+				</tags>
+				<urlContentResource url="sample file url here"/>
+				<filename>filename.ext</filename>
+				<title>Attachment title to be displayed to end users</title>
+				<description>Attachment description</description>
+			</attachment>
+		</attachments>
+		<!-- if importing caption files, use the subTitles element -->
+		<subTitles>
+			<!-- if importing more than one caption file, create multiple subTitle elements -->
+			<subTitle isDefault="true" format="1" lang="English">
+				<urlContentResource url="caption file url here" />
+			</subTitle>
+		</subTitles>	
+		<customDataItems>
+			<action>update</action>
+			<customData metadataProfileId="metadata profile id here"> <!-- set the metadataProfileId of the custom data schema defined in KMC -->
+				<action>replace</action>
+				<xmlData>
+					<metadata>
+						<!-- each field is optional, but if it is included it must match the order of the schema or else parsing will fail -->
+						<License>Apache Commons</License>
+						<Program>Technology</Program>
+						<Year>2022</Year>
+						<Term>Fall</Term>
+					</metadata>
+				</xmlData>					
+			</customData>	
+		</customDataItems>
+	</item>
+	<!--
+	* add more <item> elements here. recommended max of 500, but 100-200 is probably better
+	* when performing bulk ingests, it is advisable to add a unique tag and/or category to each batch that you load to allow easy filtering later in the KMC for reporting and/or follow-up actions
+	-->	
+</channel>
+</mrss>
