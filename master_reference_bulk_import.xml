@@ -32,6 +32,8 @@
 		<!-- if needing to set a schedule for the entry availability, use the <startDate> and/or <endDate> elements using a UTC dateTime-->
 		<!-- <startDate>2022-12-01T00:00:00</startDate> -->
 		<!-- <endDate>2022-12-31T00:00:00</endDate> -->
+		<!-- if using a template entry to inherit metadata and properties from, specify the template entry id here -->
+		<!-- <templateEntryId>1_abcdefhi</templateEntryId> -->
 		<media>
 			<mediaType>1</mediaType>
 		</media>
