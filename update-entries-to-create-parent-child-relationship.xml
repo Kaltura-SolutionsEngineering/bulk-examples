@@ -1,0 +1,16 @@
+<!-- for syntax reference, see https://www.kaltura.com/api_v3/xsdDoc/?type=bulkUploadXml.bulkUploadXML -->
+<mrss xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ingestion.xsd">
+<channel>
+	<item> <!-- this 'item' is for the parent entry.  Choose any unique value for referenceId. A useful tool to generate these is https://guidgenerator.com/  -->
+		<action>update</action>
+		<entryId>1_nqic0o28</entryId>
+		<referenceId>e2d1e763-9530-4788-b7a0-01ecdcac7628</referenceId>
+	</item>
+	<item> <!-- this 'item' is for the child entry.  Ensure the parentReferenceId is the same as the referenceId from the parent item from above. -->
+		<action>update</action>
+		<entryId>1_h5koyqqr</entryId>
+		<parentReferenceId>e2d1e763-9530-4788-b7a0-01ecdcac7628</parentReferenceId>
+	</item>
+	<!-- for additional parent/child entries, repeat the same items from above, updating the entryId of each, and be sure to use a different value for the referenceId/parentReferenceId for each additional parent/child set -->
+</channel>
+</mrss>
