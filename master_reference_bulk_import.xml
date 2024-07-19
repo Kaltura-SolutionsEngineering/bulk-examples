@@ -25,10 +25,14 @@
 			<category>Root Category Example</category>
 			<category>Root Category Example&gt;Sub Category</category>
 		</categories>
-		<!-- if specifying a transcoding profile to be used, include the id here -->
+		<!-- if specifying a transcoding profile to be used, include the id here.  if no conversion profile is provided, the account default will be used -->
 		<!--<conversionProfileId>123456789</conversionProfileId> -->
 		<!-- or you can use the profile name instead of the id -->
-		<!-- <conversionProfile>System profile name here</conversionProfile> -->
+		<!-- <conversionProfile>System profile system name here</conversionProfile> -->
+		<!-- if specifying an access control profile to be used, include the id here.  if no access control profile is provided, the account default will be used -->
+		<!-- <accessControlId>123456789</accessControlId> -->
+		<!-- or you can use the profile system name instead of the id -->
+		<!-- <accessControl>System profile name here</accessControl> -->
 		<!-- if needing to set a schedule for the entry availability, use the <startDate> and/or <endDate> elements using a UTC dateTime-->
 		<!-- <startDate>2022-12-01T00:00:00</startDate> -->
 		<!-- <endDate>2022-12-31T00:00:00</endDate> -->
